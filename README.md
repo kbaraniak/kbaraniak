@@ -1,2 +1,2 @@
 # 👋 Hi, I’m @kbaraniak (Kamil Baraniak)
-# 👀 I’m learning codes (actual React.js)
+# 👀 See my new portfolio on https://kbaraniak.me

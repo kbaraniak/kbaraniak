@@ -1,6 +1,8 @@
 # 👋 Hi, I’m Kamil Baraniak
-🖥️ Programmer from passion
+💻 **_A programmer from hobby/passion_**
 
-👀 See my new portfolio on https://kbaraniak.me
+🖼️ **_Useful & creative projects_**
 
-Created with ❤️
+🌎  **View my new portfolio: https://kbaraniak.me**
+
+❤️ *_My projects created with love_*

@@ -49,20 +49,15 @@ jobs:
           echo "OBS SC Dir List"
           ls -lah $PWD
       
-      - name: Uploading Files for Download (Step 1)
-        uses: actions/upload-artifact@v3
-        with:
-          name: obs-studio-29.1.0-5436342331-Linux.tar.gz
-          path: build/obs-studio-29.1.0-5436541522-Linux.tar.gz      
-          
-      - name: Uploading Files for Download (Step 2)
-        uses: actions/upload-artifact@v3
-        with:
-          name: obs-studio-29.1.0-5436342331-Linux.tar.Z
-          path: build/obs-studio-29.1.0-5436342331-Linux.tar.Z   
-          
-      - name: Uploading Files for Download (Step 3)
-        uses: actions/upload-artifact@v3
-        with:
-          name: obs-studio-29.1.0-5436342331-Linux.sh
-          path: obs-studio/build/obs-studio-29.1.0-5436342331-Linux.sh
+      - name: Uploading Files for Download (using transfer.sh)
+        run: |
+          sudo apt install curl -y
+          obsSHfile=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436703352-Linux.sh https://transfer.sh/obs-studio-29.1.0-5436703352-Linux.sh)
+          obsTAR1file=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.Z https://transfer.sh/obs-studio-29.1.0-5436342331-Linux.tar.Z)
+          obsTAR2file=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.gz https://transfer.sh/obs-studio-29.1.0-5436342331-Linux.tar.gz)
+          echo Upload Results: 
+          echo \> .sh File - $obsSHfile 
+          echo \> .tar.gz File - $obsTAR2file 
+          echo \> .tar.Z File - $obsTAR1file
+
+

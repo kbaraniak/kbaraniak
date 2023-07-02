@@ -33,7 +33,7 @@ jobs:
       - name: Building OBS From Latest source code
         run: |
           sudo apt install git -y
-          git clone https://github.com/obsproject/obs-studio
+          git clone --recursive https://github.com/obsproject/obs-studio.git
           cd obs-studio
           sudo chmod +x CI/build-linux.sh
           ./CI/build-linux.sh -p -pkg

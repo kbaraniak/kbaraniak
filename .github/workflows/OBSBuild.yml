@@ -53,13 +53,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: obs-studio-29.1.0-5436342331-Linux.tar.gz
-          path: obs-studio/build/obs-studio-29.1.0-5436541522-Linux.tar.gz      
+          path: build/obs-studio-29.1.0-5436541522-Linux.tar.gz      
           
       - name: Uploading Files for Download (Step 2)
         uses: actions/upload-artifact@v3
         with:
           name: obs-studio-29.1.0-5436342331-Linux.tar.Z
-          path: obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.Z   
+          path: build/obs-studio-29.1.0-5436342331-Linux.tar.Z   
           
       - name: Uploading Files for Download (Step 3)
         uses: actions/upload-artifact@v3

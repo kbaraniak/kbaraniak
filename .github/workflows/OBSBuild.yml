@@ -45,19 +45,38 @@ jobs:
           cd obs-studio
           sudo chmod +x CI/build-linux.sh
           ./CI/build-linux.sh -p -pkg
-          ls -lah build
           echo "OBS SC Dir List"
           ls -lah $PWD
+          echo "Renaming Temporary Build Files"
+          mv build/*.sh obs-studio-Linux.sh
+          mv build/*.tar.gz obs-studio-Linux.tar.gz
+          mv build/*.tar.Z obs-studio-Linux.tar.Z
       
       - name: Uploading Files for Download (using transfer.sh)
         run: |
           sudo apt install curl -y
-          obsSHfile=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436703352-Linux.sh https://transfer.sh/obs-studio-29.1.0-5436703352-Linux.sh)
-          obsTAR1file=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.Z https://transfer.sh/obs-studio-29.1.0-5436342331-Linux.tar.Z)
-          obsTAR2file=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.gz https://transfer.sh/obs-studio-29.1.0-5436342331-Linux.tar.gz)
+          obsSHfile=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-Linux.sh https://transfer.sh/obs-studio-Linux.sh)
+          obsTAR1file=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-Linux.tar.Z https://transfer.sh/obs-studio-Linux.tar.Z)
+          obsTAR2file=$(curl -T /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-Linux.tar.gz https://transfer.sh/obs-studio-Linux.tar.gz)
           echo Upload Results: 
           echo \> .sh File - $obsSHfile 
           echo \> .tar.gz File - $obsTAR2file 
           echo \> .tar.Z File - $obsTAR1file
 
+      - name: Uploading Files for Download (Artifacts - Step 1)
+        uses: actions/upload-artifact@v3
+        with:
+          name: OBS-Studio-Linux.tar.gz
+          path: /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-Linux.tar.gz      
 
+      - name: Uploading Files for Download (Artifacts - Step 2)
+        uses: actions/upload-artifact@v3
+        with:
+          name: OBS-Studio-Linux.tar.Z
+          path: /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-Linux.tar.Z     
+
+      - name: Uploading Files for Download (Artifacts - Step 3)
+        uses: actions/upload-artifact@v3
+        with:
+          name: OBS-Studio-Linux.sh
+          path: /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-Linux.sh

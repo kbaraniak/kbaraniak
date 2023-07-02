@@ -37,5 +37,6 @@ jobs:
           cd obs-studio
           sudo chmod +x CI/build-linux.sh
           ./CI/build-linux.sh -p -pkg
-          ls build
-          ls $PWD
+          ls -lah build
+          echo "OBS SC Dir List"
+          ls -lah $PWD

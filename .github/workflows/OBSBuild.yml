@@ -48,9 +48,9 @@ jobs:
           echo "OBS SC Dir List"
           ls -lah $PWD
           echo "Renaming Temporary Build Files"
-          mv build/*.sh obs-studio-Linux.sh
-          mv build/*.tar.gz obs-studio-Linux.tar.gz
-          mv build/*.tar.Z obs-studio-Linux.tar.Z
+          mv build/*.sh build/obs-studio-Linux.sh
+          mv build/*.tar.gz build/obs-studio-Linux.tar.gz
+          mv build/*.tar.Z build/obs-studio-Linux.tar.Z
       
       - name: Uploading Files for Download (using transfer.sh)
         run: |

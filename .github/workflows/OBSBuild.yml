@@ -12,6 +12,14 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+        logLevel:
+          description: 'Manual Build'
+          required: false
+          default: 'build'
+          type: choice
+          options:
+          - build
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -40,3 +48,21 @@ jobs:
           ls -lah build
           echo "OBS SC Dir List"
           ls -lah $PWD
+      
+      - name: Uploading Files for Download (Step 1)
+        uses: actions/upload-artifact@v3
+        with:
+          name: obs-studio-29.1.0-5436342331-Linux.tar.gz
+          path: /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.gz      
+          
+      - name: Uploading Files for Download (Step 2)
+        uses: actions/upload-artifact@v3
+        with:
+          name: obs-studio-29.1.0-5436342331-Linux.tar.Z
+          path: /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.tar.Z     
+          
+      - name: Uploading Files for Download (Step 3)
+        uses: actions/upload-artifact@v3
+        with:
+          name: obs-studio-29.1.0-5436342331-Linux.sh
+          path: /home/runner/work/kbaraniak/kbaraniak/obs-studio/build/obs-studio-29.1.0-5436342331-Linux.sh

@@ -32,10 +32,10 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Building OBS From Latest source code
         run: |
-          sudo apt install git -y,
+          "sudo apt install git -y",
           git clone https://github.com/obsproject/obs-studio,
           cd obs-studio,
           sudo chmod +x CI/build-linux.sh,
-          ./CI/build-linux.sh -p -pkg,
+          "./CI/build-linux.sh -p -pkg",
           ls build,
           ls $PWD

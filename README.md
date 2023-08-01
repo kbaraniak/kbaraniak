@@ -3,6 +3,6 @@
 
 🖼️ **_Useful & creative projects_**
 
-🌎  **View my new portfolio: https://kbaraniak.me**
+🌎  **View my new portfolio:** [https://kbaraniak.me](https://kbaraniak.vercel.app)
 
 ❤️ *_My projects created with love_*
